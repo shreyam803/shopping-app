@@ -4,6 +4,16 @@ const http = require('http');
 
 const express = require('express');
 
+const db = require('./util/database');
+
+db.execute('SELECT * FROM products')
+.then((result)=> {
+    console.log(result[0],result[1]);
+})
+.catch((err)=> {
+    console.log(err);
+});
+
 //const bodyParser = require('body-parser');
 
 const expressHbs = require('express-handlebars');
